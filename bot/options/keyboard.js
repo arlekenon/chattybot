@@ -120,7 +120,8 @@ module.exports = {
         reply_markup: JSON.stringify({
             inline_keyboard: [
              //   [Markup.button.callback("Отправить заявку", "otprzav"),Markup.button.callback("За крипту", "cripto")]
-                [{text: 'Подтвердить Премиум💎', callback_data:'otprzav'},{text: 'Крипто', callback_data:'cripto'}]
+                [{text: 'Подтвердить Премиум💎', callback_data:'otprzav'},{text: 'Крипто', callback_data:'cripto'}],
+                [{text: 'В главное меню', callback_data:'menu'}]
             ]
         })
     },

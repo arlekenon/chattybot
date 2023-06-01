@@ -172,6 +172,16 @@ finishStep.action("cripto", async (ctx) => {
     }
 });
 
+finishStep.action("menu", async (ctx) => {
+    try {
+        await ctx.answerCbQuery();
+        await ctx.telegram.sendSticker(ctx.chat.id,`https://tlgrm.ru/_/stickers/348/e30/348e3088-126b-4939-b317-e9036499c515/1.webp`, keyOptions)
+        return ctx.scene.leave();
+    } catch (e) {
+        console.log(e);
+    }
+});
+
 
 
 module.exports = new Scenes.WizardScene("addpremiumWizard", startStep, opStep, finishStep);
