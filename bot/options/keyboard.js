@@ -110,7 +110,8 @@ module.exports = {
     premOptions: {
         reply_markup: JSON.stringify({
             inline_keyboard: [
-                [{text: '69₽', callback_data:'69'},{text: '219₽', callback_data:'219'},{text: '499₽', callback_data:'499'}]
+                [{text: '69₽', callback_data:'69'},{text: '219₽', callback_data:'219'},{text: '499₽', callback_data:'499'}],
+                [{text: 'В главное меню', callback_data:'menu'}]
         ]
         })
     },
@@ -119,7 +120,7 @@ module.exports = {
         reply_markup: JSON.stringify({
             inline_keyboard: [
              //   [Markup.button.callback("Отправить заявку", "otprzav"),Markup.button.callback("За крипту", "cripto")]
-                [{text: 'Отправить заявку', callback_data:'otprzav'},{text: 'Крипто', callback_data:'cripto'}]
+                [{text: 'Подтвердить Премиум💎', callback_data:'otprzav'},{text: 'Крипто', callback_data:'cripto'}]
             ]
         })
     },

@@ -45,27 +45,82 @@ startStep.hears("Премиум💎", async (ctx) => {
 });
 
 const opStep = new Composer();
-opStep.on("callback_query", async (ctx) => {
+
+opStep.action("69", async (ctx) => {
     try {
         ctx.wizard.state.formData = {};
         const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
         const User = await connection.model('User', userSchema);
-
-
         const foundUser = await User.findOne({chatId:ctx.chat.id});
         const updateUser = await User.updateOne({chatId:ctx.chat.id}, {actionbalance: Number(ctx.callbackQuery.data)})
 
         await ctx.answerCbQuery();
         await ctx.reply(`Поздоавляю! Ты выбрал ${ctx.callbackQuery.data}₽ . 
 
-Выбрав обычный.
-С тобой свяжется админ и поможет приобрести Премиум💎.
+Выбери Подтвердить Премиум💎.
+С тобой свяжется админ и поможет преобрести Премиум💎.
 
 Крипто.
 В процессе подключения крипто.`, remopOptions);
         //     Пополнить баланс своего аккаунта.
         //       Совершить перевод на указаный адрес и тебе начислится пермиум.
         return ctx.wizard.next();
+    } catch (e) {
+        console.log(e);
+    }
+});
+opStep.action("219", async (ctx) => {
+    try {
+        ctx.wizard.state.formData = {};
+        const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
+        const User = await connection.model('User', userSchema);
+        const foundUser = await User.findOne({chatId:ctx.chat.id});
+        const updateUser = await User.updateOne({chatId:ctx.chat.id}, {actionbalance: Number(ctx.callbackQuery.data)})
+
+        await ctx.answerCbQuery();
+        await ctx.reply(`Поздоавляю! Ты выбрал ${ctx.callbackQuery.data}₽ . 
+
+Выбери Подтвердить Премиум💎.
+С тобой свяжется админ и поможет преобрести Премиум💎.
+
+Крипто.
+В процессе подключения крипто.`, remopOptions);
+        //     Пополнить баланс своего аккаунта.
+        //       Совершить перевод на указаный адрес и тебе начислится пермиум.
+        return ctx.wizard.next();
+    } catch (e) {
+        console.log(e);
+    }
+});
+opStep.action("499", async (ctx) => {
+    try {
+        ctx.wizard.state.formData = {};
+        const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
+        const User = await connection.model('User', userSchema);
+        const foundUser = await User.findOne({chatId:ctx.chat.id});
+        const updateUser = await User.updateOne({chatId:ctx.chat.id}, {actionbalance: Number(ctx.callbackQuery.data)})
+
+        await ctx.answerCbQuery();
+        await ctx.reply(`Поздоавляю! Ты выбрал ${ctx.callbackQuery.data}₽ . 
+
+Выбери Подтвердить Премиум💎.
+С тобой свяжется админ и поможет преобрести Премиум💎.
+
+Крипто.
+В процессе подключения крипто.`, remopOptions);
+        //     Пополнить баланс своего аккаунта.
+        //       Совершить перевод на указаный адрес и тебе начислится пермиум.
+        return ctx.wizard.next();
+    } catch (e) {
+        console.log(e);
+    }
+});
+opStep.action("menu", async (ctx) => {
+    try {
+        await ctx.answerCbQuery();
+      //  await ctx.reply(``, keyOptions);
+        await ctx.telegram.sendSticker(ctx.chat.id,`https://tlgrm.ru/_/stickers/348/e30/348e3088-126b-4939-b317-e9036499c515/1.webp`, keyOptions)
+        return ctx.scene.leave();
     } catch (e) {
         console.log(e);
     }
