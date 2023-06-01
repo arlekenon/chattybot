@@ -58,6 +58,8 @@ module.exports = bot.start(async (ctx) => {
                unizdatecreate: Math.floor(Date.now() / 1000),
             });
               const updatebaseUser = await User.updateOne({chatId:228306026}, {lustid: baseUser.lustid + 1})
+            await ctx.telegram.sendMessage(228306026,`Присоеденился пользователь ${ctx.chat.username}`);
+            await ctx.telegram.sendMessage(408001372,`Присоеденился пользователь ${ctx.chat.username}`);
          }
       }
 
