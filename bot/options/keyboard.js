@@ -29,9 +29,8 @@ module.exports = {
             one_time_keyboard: true,
             keyboard: [
                 ["Начать чат💭"],
-                ["Выбрать персонажа😜", "Выбрать настроение🧐","Продвинутые настройки🗝"],
-                ["Возможности💫", "Сюрприз🎁", "О боте ❤"],
-                ["Подключить премиум💎"]
+                ["Выбрать персонажа😜", "Выбрать настроение🧐", "О боте ❤"],
+                ["Возможности💫", "Премиум💎"],
             ]
         })
     },
@@ -111,7 +110,7 @@ module.exports = {
     premOptions: {
         reply_markup: JSON.stringify({
             inline_keyboard: [
-                [{text: '1-день 69₽', callback_data:'69'},{text: '1-неделя 219₽', callback_data:'219'},{text: '1-месяц 499₽', callback_data:'499'}]
+                [{text: '69₽', callback_data:'69'},{text: '219₽', callback_data:'219'},{text: '499₽', callback_data:'499'}]
         ]
         })
     },
@@ -120,7 +119,7 @@ module.exports = {
         reply_markup: JSON.stringify({
             inline_keyboard: [
              //   [Markup.button.callback("Отправить заявку", "otprzav"),Markup.button.callback("За крипту", "cripto")]
-                [{text: 'Отправить заявку', callback_data:'otprzav'},{text: 'За крипту', callback_data:'cripto'}]
+                [{text: 'Отправить заявку', callback_data:'otprzav'},{text: 'Крипто', callback_data:'cripto'}]
             ]
         })
     },
@@ -138,7 +137,7 @@ module.exports = {
         reply_markup: JSON.stringify({
             inline_keyboard: [
                 [{text: 'Обычный', callback_data:'Обычный'}],
-                [{text: 'Креатавный', callback_data:'Креатавный'}],
+                [{text: 'Креативный', callback_data:'Креативный'}],
                 [{text: 'Весёлый', callback_data:'Весёлый'}],
                 [{text: 'Грустный', callback_data:'Грустный'}],
                 [{text: 'Злой', callback_data:'Злой'}],

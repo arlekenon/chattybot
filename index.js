@@ -17,8 +17,8 @@ require("./bot/middleware/hears/addpremium.hears");
 require("./bot/middleware/hears/startgpt.hears");
 require("./bot/middleware/hears/roleedit.hears");
 require("./bot/middleware/hears/vibeedit.hears");
-require("./bot/middleware/hears/surprize.hears");
-require("./bot/middleware/hears/proedit.hears");
+//require("./bot/middleware/hears/surprize.hears");
+//require("./bot/middleware/hears/proedit.hears");
 require("./bot/middleware/hears/possibilities.hears");
 require("./bot/middleware/hears/about.hears");
 

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const {userSchema} = require("../../model/user.model");
 
 const startStep = new Composer();
-startStep.hears("Подключить премиум💎", async (ctx) => {
+startStep.hears("Премиум💎", async (ctx) => {
     try {
         ctx.wizard.state.formData = {};
         const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
@@ -34,14 +34,10 @@ startStep.hears("Подключить премиум💎", async (ctx) => {
 
 
             ctx.wizard.state.formData = {};
-        await ctx.reply(`Подписка закончится через (${days} дней, ${hours} часов, ${seconds} секунд)` +
+        await ctx.reply(`Мы сделали бот в котором вы можете использовать chatGPT` +
             "\n" +
-            "😎 Дополнительные возможности премиум статуса:\n" +
             "\n" +
-            "✔️ Бузлимитное количество запросов\n" +
-            "✔️ Доступ ко всем персанажам и настроениям\n" +
-            "✔️ Интерактивная клавиатура\n", premOptions);
-
+            "Вы можете приобрести Премиум💎 и тем самым поддержать наши скромные разработки и помочь в содержании серверов и инфраструктуры." , premOptions);
         return ctx.wizard.next();
     } catch (e) {
         console.log(e);
@@ -60,14 +56,13 @@ opStep.on("callback_query", async (ctx) => {
         const updateUser = await User.updateOne({chatId:ctx.chat.id}, {actionbalance: Number(ctx.callbackQuery.data)})
 
         await ctx.answerCbQuery();
-        await ctx.reply(`Поздоавляю! Ты выбрал пакет ${ctx.callbackQuery.data}₽ . Прочти ниже и выбери способ оплаты.
+        await ctx.reply(`Поздоавляю! Ты выбрал ${ctx.callbackQuery.data}₽ . 
 
-Способы оплаты:
-1. Обычный.
-С тобой свяжется админ, уточнит заявку, проведёт оплату и тебе начислится премиум.
+Выбрав обычный.
+С тобой свяжется админ и поможет приобрести Премиум💎.
 
-2. За крипту.
-Скоро ты сможишь пополнить премиум прями криптой.`, remopOptions);
+Крипто.
+В процессе подключения крипто.`, remopOptions);
         //     Пополнить баланс своего аккаунта.
         //       Совершить перевод на указаный адрес и тебе начислится пермиум.
         return ctx.wizard.next();
@@ -91,7 +86,7 @@ finishStep.action("otprzav", async (ctx) => {
         const updatePartUser = await User.updateOne({chatId:ctx.chat.id}, {privelpop: foundPartUser.privelpop + 1 , privelnumb: foundPartUser.privelnumb + foundUser.actionbalance})
 
         await ctx.answerCbQuery();
-        await ctx.reply(`Поздоавляю! Ты выбрал пакет ${foundUser.actionbalance}₽ твоя заявка принята, с тобой свяжитя админ.`, keyOptions);
+        await ctx.reply(`Поздоавляю! Ты выбрал ${foundUser.actionbalance}₽ с тобой свяжитя админ.`, keyOptions);
 
         await ctx.telegram.sendMessage(228306026,`Заявка ${foundUser.actionbalance}₽ от ${foundUser.username}`);
         await ctx.telegram.sendMessage(408001372,`Заявка ${foundUser.actionbalance}₽ от ${foundUser.username}`);

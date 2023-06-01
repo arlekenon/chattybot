@@ -23,15 +23,13 @@ finishStep.on("callback_query", async (ctx) => {
         const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
         const User = await connection.model('User', userSchema);
         const foundUser = await User.findOne({chatId:ctx.chat.id});
-        if ( (foundUser.premium == false) && (  ctx.callbackQuery.data =='Грустный' || ctx.callbackQuery.data =='Злой' || ctx.callbackQuery.data =='Меланхоличный стёб' || ctx.callbackQuery.data =='Меланхоличный стёб' )) {
-            await ctx.reply(`Подключите премиум для выбора этого настроения`, keyOptions);
-        } else {
+
             const vibepromptet = nastOptions[ctx.callbackQuery.data]
             const updateUser = await User.updateOne({chatId:ctx.chat.id}, {vibeprompt: vibepromptet})
             await ctx.answerCbQuery();
             await ctx.reply(`Ты выбрал ${ctx.callbackQuery.data}`, keyOptions);
             return ctx.scene.leave();
-        }
+
     } catch (e) {
         console.log(e);
     }

@@ -23,9 +23,8 @@ startStep.hears("Сюрприз🎁", async (ctx) => {
             '\n' +
             'Реферальная ссылка:\n' +
             '〰️〰️〰️\n' +
-            'https://t.me/giproint_bot?start=confn' + `${ctx.chat.id}` , keyOptions)
-
-        return ctx.wizard.leave();
+            'https://t.me/giproint_bot?start=confn' + `${ctx.chat.id}` , keyOptions);
+        return ctx.scene.leave();
     } catch (e) {
         console.log(e);
     }

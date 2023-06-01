@@ -62,6 +62,8 @@ module.exports = bot.start(async (ctx) => {
       }
 
 
+
+
       //await ctx.reply(ctx.message.text, keyOptions);
       await ctx.replyWithHTML(`Hi, <b>${firstName}</b>!`, keyOptions);
       await ctx.telegram.sendSticker(ctx.chat.id,`https://tlgrm.ru/_/stickers/348/e30/348e3088-126b-4939-b317-e9036499c515/1.webp`, keyOptions)
