@@ -24,12 +24,12 @@ async function getAnswer (chatId, content, ctx)  {
 
     try {
         const response = await openai.post("/chat/completions", data)
-        console.log(response.data.choices[0].message.content);
         const content = response.data.choices[0].message.content
         chatslastcont[chatId] = response.data.choices[0].message.content
         return (content);
     } catch {
-        console.log(error);
+        const response = await openai.post("/chat/completions", data)
+        console.log(response);
     }
 
 }

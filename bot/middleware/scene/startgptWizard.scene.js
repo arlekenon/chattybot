@@ -24,20 +24,13 @@ finishStep.on('text', async (ctx) => {
             await ctx.reply('Чат выключен', keyOptions)
             return ctx.scene.leave();
         }
-        const connection = await mongoose.createConnection('mongodb://127.0.0.1:27017/test');
-        const User = await connection.model('User', userSchema);
-
-        const foundUser = await User.findOne({chatId:ctx.chat.id});
-        const persona = foundUser.roleoleprompt
-        const viber = foundUser.vibeprompt
-        const updateUser = await User.updateOne({chatId:ctx.chat.id}, {requestchat: foundUser.requestchat + 1})
+        if (ctx.message.text == '/start') {
+            await ctx.reply('Добро пожаловать в телеграм ChatGPT бот!', keyOptions)
+            return ctx.scene.leave();
+        }
 
 
-
-        const context = persona + viber + ctx.message.text
-        console.log(foundUser);
-        console.log(context)
-        const content = await openai.getAnswer(ctx.chat.id, context)
+        const content = await openai.getAnswer(ctx.chat.id, ctx.message.text)
         await ctx.reply(content);
 
     } catch (e) {
