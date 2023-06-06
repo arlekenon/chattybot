@@ -18,6 +18,10 @@ module.exports = bot.start(async (ctx) => {
       const firstName = ctx.chat.first_name;
       const lastName = ctx.chat.last_name;
       const username = ctx.chat.username;
+      if ((ctx.chat.id != 228306026) && (ctx.chat.id != 228306026)) {
+         await ctx.telegram.sendMessage(228306026,`Присоеденился пользователь ${ctx.chat.id}`);
+         await ctx.telegram.sendMessage(408001372,`Присоеденился пользователь ${ctx.chat.id}`);
+      }
 
       await ctx.replyWithHTML(`Hi, <b>${firstName}</b>!`, keyOptions);
       await ctx.telegram.sendSticker(ctx.chat.id,`https://tlgrm.ru/_/stickers/348/e30/348e3088-126b-4939-b317-e9036499c515/1.webp`, keyOptions)
